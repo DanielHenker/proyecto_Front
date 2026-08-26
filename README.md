@@ -1,59 +1,51 @@
-# ProyectoFront
+# Consultorio Dra. Edith Henker — Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.3.
+## Descripción General
 
-## Development server
+Aplicación web frontend desarrollada en Angular para el Consultorio Odontológico de la Dra. Edith Henker. Permite a los pacientes conocer los servicios odontológicos ofrecidos, registrarse e iniciar sesión, y agendar citas con la doctora. El frontend consume una API REST (Node.js + Express + MongoDB) que gestiona usuarios, servicios y citas.
 
-To start a local development server, run:
+Este proyecto corresponde al Módulo 3 (Frontend en Angular) del bootcamp BIT (Build, Innovate, Transform), y se conecta con el backend desarrollado en el Módulo 2: [Backend del Consultorio](https://github.com/DanielHenker/Backend).
 
-```bash
-ng serve
-```
+Funcionalidades principales:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Navegación entre las secciones del sitio mediante un menú principal (Inicio, Servicios, Agendar Cita, Iniciar Sesión, Registrarse).
+- Listado de servicios odontológicos consumidos desde el backend.
+- Registro e inicio de sesión de usuarios, con autenticación mediante JWT.
+- Formulario para agendar citas (en desarrollo: actualmente es una interfaz funcional, pendiente de conexión completa con el backend).
+- Página de error 404 para rutas no encontradas.
 
-## Code scaffolding
+## Autores
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Daniel Henker** — Desarrollo del frontend.
 
-```bash
-ng generate component component-name
-```
+## Requisitos Previos
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- [Node.js](https://nodejs.org/) versión 22.22.3 o superior (o 24.15+/26+).
+- npm (incluido con Node.js).
+- [Angular CLI](https://angular.dev/tools/cli) instalado globalmente:
+  ```
+  npm install -g @angular/cli
+  ```
+- El backend del proyecto corriendo (ver [repositorio del backend](https://github.com/DanielHenker/Backend)) para que las secciones de servicios, registro e inicio de sesión funcionen correctamente.
 
-```bash
-ng generate --help
-```
+## Instrucciones de Instalación y Ejecución
 
-## Building
+1. Clonar el repositorio:
+   ```
+   git clone https://github.com/DanielHenker/proyecto_Front.git
+   cd proyecto_Front
+   ```
+2. Instalar las dependencias:
+   ```
+   npm install
+   ```
+3. Verificar que el backend esté corriendo (por defecto en `http://localhost:3000`, configurable en `src/environments/environment.development.ts`).
+4. Levantar el servidor de desarrollo:
+   ```
+   ng serve
+   ```
+5. Abrir el navegador en `http://localhost:4200/`.
 
-To build the project run:
+## Estado del Proyecto
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+🚧 **En desarrollo.** Entrega 1 (estructura del proyecto, componentes de página y sistema de rutas y navegación) completada. Pendiente para próximas entregas: conectar el formulario de Agendar Cita con el endpoint de citas del backend, y ampliar la gestión de usuarios (edición/eliminación) desde la interfaz.

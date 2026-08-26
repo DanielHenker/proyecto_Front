@@ -1,0 +1,16 @@
+.not-found-container {
+  max-width: 480px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.not-found-container h1 {
+  font-size: 4rem;
+  margin: 0;
+  color: #b83b5e;
+}
+
+.not-found-container a {
+  display: inline-block;
+  margin-top: 1rem;
+}

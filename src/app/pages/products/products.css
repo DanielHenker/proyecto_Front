@@ -1,0 +1,30 @@
+.citas-container {
+    max-width: 480px;
+    margin: 3rem auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.subtitulo {
+    color: #666;
+    margin-top: -0.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+button {
+    margin-top: 0.5rem;
+    padding: 0.6rem;
+    cursor: pointer;
+}
+
+.mensaje {
+    margin-top: 1rem;
+    font-weight: 500;
+}

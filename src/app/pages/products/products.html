@@ -1,0 +1,28 @@
+<section class="citas-container">
+    <h2>Agendar Cita</h2>
+    <p class="subtitulo">Consultorio Dra. Edith Henker</p>
+
+    <form (ngSubmit)="onSubmit()" #citaForm="ngForm">
+        <label for="servicio">Servicio</label>
+        <select id="servicio" name="servicio" [(ngModel)]="cita.servicio" required>
+            <option value="" disabled>Selecciona un servicio</option>
+            <option value="Consulta general">Consulta general</option>
+            <option value="Limpieza dental">Limpieza dental</option>
+            <option value="Ortodoncia">Ortodoncia</option>
+            <option value="Extracción">Extracción</option>
+            <option value="Blanqueamiento">Blanqueamiento</option>
+        </select>
+
+        <label for="fecha">Fecha y hora</label>
+        <input type="datetime-local" id="fecha" name="fecha" [(ngModel)]="cita.fecha" required>
+
+        <label for="notas">Notas (opcional)</label>
+        <textarea id="notas" name="notas" [(ngModel)]="cita.notas" rows="3"></textarea>
+
+        <button type="submit" [disabled]="!citaForm.valid">Solicitar Cita</button>
+    </form>
+
+    @if (mensaje) {
+        <p class="mensaje">{{ mensaje }}</p>
+    }
+</section>

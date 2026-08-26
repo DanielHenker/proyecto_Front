@@ -1,0 +1,18 @@
+<section class="services-container">
+    <h2>Nuestros servicios</h2>
+
+    @if (mensaje) {
+        <p class="mensaje">{{ mensaje }}</p>
+    }
+
+    <div class="services-grid">
+        @for (servicio of servicios; track servicio._id) {
+            <div class="service-card">
+                <h3>{{ servicio.name }}</h3>
+                <p class="category">{{ servicio.category }}</p>
+                <p>{{ servicio.description }}</p>
+                <p class="price">${{ servicio.price }}</p>
+            </div>
+        }
+    </div>
+</section>

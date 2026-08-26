@@ -1,0 +1,23 @@
+.hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    background-color: #eaf4fb;
+}
+
+.hero h1 {
+    color: #1a5276;
+}
+
+.cta-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #1a5276;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.info {
+    padding: 2rem;
+}
