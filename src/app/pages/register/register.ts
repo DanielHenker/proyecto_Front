@@ -22,7 +22,7 @@ export class Register {
   constructor(private usersService: Users, private router: Router) {}
 
   onSubmit() {
-    this.usersService.register(this.user).subscribe({
+   this.usersService.registrarUsuario(this.user).subscribe({
       next: () => {
         this.mensaje = 'Registro exitoso, ya puedes iniciar sesión';
         setTimeout(() => this.router.navigate(['/login']), 1500);

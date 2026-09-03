@@ -1,35 +1,35 @@
-import { Injectable } from '@angular/core';
+// Implementar lógica en cualquier parte del proyecto de Angular
+// Consumir los servicios de un backend!!!
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { User } from '../interfaces/user';
 import { Credentials } from '../interfaces/credentials';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class Users {
-  private apiUrl = `${environment.apiUrl}/usuarios`;
+    // 1. Inyectar dependencias
+    _http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+    // 2. Ruta de conexión con el backend
+    URL_USUARIOS = environment.apiUrl + '/usuarios';
 
-  register(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}/registrar`, user);
-  }
+    // 3. Implementar las peticiones al backend
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/mostrar`);
-  }
+    // 3.1. Mostrar todos los usuarios
+    mostrarUsuarios() {
+        return this._http.get(this.URL_USUARIOS + '/mostrar');
+    }
 
-  login(credentials: Credentials): Observable<{ token: string; user: User }> {
-    return this.http.post<{ token: string; user: User }>(`${this.apiUrl}/iniciar-sesion`, credentials);
-  }
+    // 3.2. Registrar un usuario
+    registrarUsuario(user: User) {
+        return this._http.post(this.URL_USUARIOS + '/registrar', user);
+    }
 
-  updateUser(id: string, user: Partial<User>): Observable<User> {
-    return this.http.put<User>(`${this.apiUrl}/actualizar/${id}`, user);
-  }
-
-  deleteUser(id: string): Observable<unknown> {
-    return this.http.delete(`${this.apiUrl}/eliminar/${id}`);
-  }
+    // 3.3. Iniciar sesión
+    iniciarSesion(credentials: Credentials) {
+        return this._http.post(this.URL_USUARIOS + '/iniciar-sesion', credentials);
+    }
 }

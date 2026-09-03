@@ -1,30 +1,27 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from '../../environments/environment';
 import { Product } from '../interfaces/products';
+import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class Products {
-  private apiUrl = `${environment.apiUrl}/productos`;
+    // 1. Inyectar dependencias
+    _http = inject(HttpClient);
 
-  constructor(private http: HttpClient) {}
+    // 2. Ruta de conexión con el backend
+    URL_PRODUCTOS = environment.apiUrl + '/productos';
 
-  getServices(): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.apiUrl}/mostrar`);
-  }
+    // 3. Implementar las peticiones al backend
 
-  createService(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${this.apiUrl}/crear`, product);
-  }
+    // 3.1. Mostrar todos los servicios
+    mostrarProductos() {
+        return this._http.get(this.URL_PRODUCTOS + '/mostrar');
+    }
 
-  updateService(id: string, product: Partial<Product>): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/actualizar/${id}`, product);
-  }
-
-  deleteService(id: string): Observable<unknown> {
-    return this.http.delete(`${this.apiUrl}/eliminar/${id}`);
-  }
+    // 3.2. Crear un nuevo servicio
+    crearProducto(product: Product) {
+        return this._http.post(this.URL_PRODUCTOS + '/crear', product);
+    }
 }

@@ -15,7 +15,7 @@ export class Services implements OnInit {
   constructor(private productsService: Products) {}
 
   ngOnInit() {
-    this.productsService.getServices().subscribe({
+    this.productsService.mostrarProductos().subscribe({
       next: (response: any) => {
         this.servicios = response.datos || [];
         if (this.servicios.length === 0) {

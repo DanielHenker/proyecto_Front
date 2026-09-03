@@ -21,7 +21,7 @@ export class Forms {
   constructor(private usersService: Users, private router: Router) {}
 
   onSubmit() {
-    this.usersService.login(this.credentials).subscribe({
+    this.usersService.iniciarSesion(this.credentials).subscribe({
       next: (response: any) => {
         this.mensaje = 'Inicio de sesión exitoso';
         // Guardamos el token JWT para futuras peticiones autenticadas
