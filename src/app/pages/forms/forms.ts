@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from '../../services/users';
+import { Login } from '../../services/login';
 import { Credentials } from '../../interfaces/credentials';
 
 @Component({
@@ -18,14 +18,14 @@ export class Forms {
 
   mensaje: string = '';
 
-  constructor(private usersService: Users, private router: Router) {}
+  constructor(private loginService: Login, private router: Router) {}
 
   onSubmit() {
-    this.usersService.iniciarSesion(this.credentials).subscribe({
-      next: (response: any) => {
+    this.loginService.iniciarSesion(this.credentials).subscribe({
+      next: (response) => {
         this.mensaje = 'Inicio de sesión exitoso';
         // Guardamos el token JWT para futuras peticiones autenticadas
-        localStorage.setItem('token', response.token);
+        this.loginService.guardarToken(response.token);
         this.router.navigate(['/']);
       },
       error: (error) => {
