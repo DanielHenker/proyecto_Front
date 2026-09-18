@@ -6,7 +6,7 @@ import { Product } from '../interfaces/products'; // ajusta el nombre si tu inte
 @Injectable({
   providedIn: 'root'
 })
-export class Products {
+export class ProductsService {
 
   // 1. inyectar dependencias
   private _http = inject(HttpClient);
