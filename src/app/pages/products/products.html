@@ -1,28 +1,61 @@
-<section class="citas-container">
-    <h2>Agendar Cita</h2>
-    <p class="subtitulo">Consultorio Dra. Edith Henker</p>
 
-    <form (ngSubmit)="onSubmit()" #citaForm="ngForm">
-        <label for="servicio">Servicio</label>
-        <select id="servicio" name="servicio" [(ngModel)]="cita.servicio" required>
-            <option value="" disabled>Selecciona un servicio</option>
-            <option value="Consulta general">Consulta general</option>
-            <option value="Limpieza dental">Limpieza dental</option>
-            <option value="Ortodoncia">Ortodoncia</option>
-            <option value="Extracción">Extracción</option>
-            <option value="Blanqueamiento">Blanqueamiento</option>
-        </select>
+<div class="contenedor">
+  <h1>Administración de Servicios</h1>
 
-        <label for="fecha">Fecha y hora</label>
-        <input type="datetime-local" id="fecha" name="fecha" [(ngModel)]="cita.fecha" required>
+  <!-- Formulario para crear un nuevo servicio -->
+  <form class="formulario" (ngSubmit)="crearServicio()">
+    <input
+      type="text"
+      placeholder="Nombre del servicio"
+      [(ngModel)]="nuevoServicio.name"
+      name="name"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Descripción"
+      [(ngModel)]="nuevoServicio.description"
+      name="description"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Categoría"
+      [(ngModel)]="nuevoServicio.category"
+      name="category"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Precio"
+      [(ngModel)]="nuevoServicio.price"
+      name="price"
+      required
+    />
+    <button type="submit">Agregar</button>
+  </form>
 
-        <label for="notas">Notas (opcional)</label>
-        <textarea id="notas" name="notas" [(ngModel)]="cita.notas" rows="3"></textarea>
+  @if (cargando()) {
+    <p class="cargando">Cargando servicios...</p>
+  }
 
-        <button type="submit" [disabled]="!citaForm.valid">Solicitar Cita</button>
-    </form>
-
-    @if (mensaje) {
-        <p class="mensaje">{{ mensaje }}</p>
+  <div class="lista">
+    @for (servicio of servicios(); track servicio._id) {
+      <div class="tarjeta">
+        <div class="cuerpo">
+          <strong class="nombre">{{ servicio.name }}</strong>
+          @if (servicio.category) {
+            <span class="categoria">{{ servicio.category }}</span>
+          }
+          <p class="descripcion">{{ servicio.description }}</p>
+          <span class="precio">${{ servicio.price }}</span>
+        </div>
+        <button class="btn-eliminar" (click)="eliminarServicio(servicio._id!)">
+          Eliminar
+        </button>
+      </div>
+    } @empty {
+      <p>No hay servicios registrados.</p>
     }
-</section>
+  </div>
+</div>

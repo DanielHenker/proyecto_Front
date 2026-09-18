@@ -1,30 +1,110 @@
-.citas-container {
-    max-width: 480px;
-    margin: 3rem auto;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+.contenedor {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: system-ui, sans-serif;
 }
 
-.subtitulo {
-    color: #666;
-    margin-top: -0.5rem;
+h1 {
+  text-align: center;
+  color: #1a5276;
+  margin-bottom: 1.5rem;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+.formulario {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
-button {
-    margin-top: 0.5rem;
-    padding: 0.6rem;
-    cursor: pointer;
+.formulario input {
+  flex: 1;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.mensaje {
-    margin-top: 1rem;
-    font-weight: 500;
+.formulario button {
+  padding: 0.6rem 1rem;
+  background-color: #1a5276;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background-color: #154360;
+}
+
+.cargando {
+  text-align: center;
+  color: #888;
+}
+
+.lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #ececf4;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta .cuerpo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.9rem 1rem;
+  flex: 1;
+}
+
+.tarjeta .nombre {
+  color: #1a5276;
+  font-size: 1rem;
+}
+
+.tarjeta .categoria {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #1a5276;
+  background: #eaf4fb;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.tarjeta .descripcion {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.tarjeta .precio {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-top: 0.25rem;
+}
+
+.btn-eliminar {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 0.55rem 0.8rem;
+  margin: 0 1rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-eliminar:hover {
+  background-color: #c53030;
 }

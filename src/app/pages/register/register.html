@@ -1,16 +1,22 @@
 <section class="register-container">
-    <h2>Registro de paciente</h2>
+    <h2 class="text-center mb-4">Registro de paciente</h2>
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
-        <label for="name">Nombre completo</label>
-        <input type="text" id="name" name="name" [(ngModel)]="user.name" required>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre completo</label>
+            <input type="text" id="name" name="name" class="form-control" [(ngModel)]="user.name" required>
+        </div>
 
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" [(ngModel)]="user.email" required>
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="user.email" required>
+        </div>
 
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" [(ngModel)]="user.password" required minlength="6">
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" required minlength="6">
+        </div>
 
-        <button type="submit" [disabled]="!registerForm.valid">Registrarme</button>
+        <button type="submit" class="w-100" [disabled]="!registerForm.valid">Registrarme</button>
     </form>
 
     @if (mensaje) {

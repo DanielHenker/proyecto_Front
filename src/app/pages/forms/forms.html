@@ -1,13 +1,17 @@
 <section class="login-container">
-    <h2>Iniciar sesión</h2>
+    <h2 class="text-center mb-4">Iniciar sesión</h2>
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" [(ngModel)]="credentials.email" required>
+        <div class="mb-3">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" name="email" class="form-control" [(ngModel)]="credentials.email" required>
+        </div>
 
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" name="password" [(ngModel)]="credentials.password" required>
+        <div class="mb-3">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" name="password" class="form-control" [(ngModel)]="credentials.password" required>
+        </div>
 
-        <button type="submit" [disabled]="!loginForm.valid">Ingresar</button>
+        <button type="submit" class="w-100" [disabled]="!loginForm.valid">Ingresar</button>
     </form>
 
     @if (mensaje) {
