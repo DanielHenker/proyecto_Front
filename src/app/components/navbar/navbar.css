@@ -2,30 +2,72 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background-color: #1a5276;
+    padding: 0.5rem 2rem;
+    background-color: #713c58;
     color: white;
 }
 
 .navbar-brand {
-    font-weight: bold;
-    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-logo {
+    height: 68px;
+    width: auto;
 }
 
 .navbar-links {
     display: flex;
+    align-items: center;
     list-style: none;
-    gap: 1.5rem;
+    gap: 0.6rem;
     margin: 0;
     padding: 0;
+    flex-wrap: wrap;
 }
 
 .navbar-links a {
-    color: white;
+    display: inline-block;
+    color: #713c58;
     text-decoration: none;
+    background-color: white;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 0.92rem;
+    transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.navbar-links a:hover {
+    background-color: #f7f0f4;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
 }
 
 .navbar-links a.active {
-    text-decoration: underline;
+    background-color: #5b3047;
+    color: white;
     font-weight: bold;
+}
+
+.btn-logout {
+    display: inline-block;
+    background-color: white;
+    border: none;
+    color: #713c58;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 999px;
+    transition: background-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-logout:hover {
+    background-color: #f7f0f4;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
 }
