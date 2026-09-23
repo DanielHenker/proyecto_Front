@@ -12,14 +12,17 @@
         </div>
 
         <div class="mb-3">
+            <label for="phone" class="form-label">Número de teléfono</label>
+            <input type="tel" id="phone" name="phone" class="form-control" [(ngModel)]="user.phone"
+                   required pattern="[0-9]{7,10}" title="Solo números, entre 7 y 10 dígitos"
+                   placeholder="Ej: 3001234567">
+        </div>
+
+        <div class="mb-3">
             <label for="password" class="form-label">Contraseña</label>
             <input type="password" id="password" name="password" class="form-control" [(ngModel)]="user.password" required minlength="6">
         </div>
 
         <button type="submit" class="w-100" [disabled]="!registerForm.valid">Registrarme</button>
     </form>
-
-    @if (mensaje) {
-        <p class="mensaje">{{ mensaje }}</p>
-    }
 </section>
