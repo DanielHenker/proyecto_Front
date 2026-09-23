@@ -1,0 +1,41 @@
+<section class="patients-hero text-center">
+    <div class="container">
+        <h1>Pacientes registrados</h1>
+        <p class="lead">Consulta los datos de contacto de tus pacientes para confirmar sus citas.</p>
+    </div>
+</section>
+
+<section class="patients-container">
+    <div class="container">
+        @if (cargando()) {
+            <p class="text-center">Cargando pacientes...</p>
+        }
+
+        @if (mensaje()) {
+            <p class="mensaje text-center">{{ mensaje() }}</p>
+        }
+
+        @if (pacientes().length > 0) {
+            <div class="table-responsive">
+                <table class="table patients-table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo electrónico</th>
+                            <th>Teléfono</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (paciente of pacientes(); track paciente._id) {
+                            <tr>
+                                <td>{{ paciente.name }}</td>
+                                <td>{{ paciente.email }}</td>
+                                <td>{{ paciente.phone }}</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</section>
