@@ -1,11 +1,11 @@
 .aviso-login {
   text-align: center;
   padding: 4rem 1rem;
-  background-color: #eaf4fb;
+  background-color: #f7f0f4;
 }
 
 .aviso-login h2 {
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 1rem;
 }
 
@@ -15,14 +15,14 @@
 
 .citas-container h1,
 .citas-container h2 {
-  color: #1a5276;
+  color: #713c58;
 }
 
 .cta-button {
   display: inline-block;
   padding: 0.6rem 1.25rem;
   margin: 0 0.4rem;
-  background-color: #1a5276;
+  background-color: #713c58;
   color: white;
   text-decoration: none;
   border: none;
@@ -31,17 +31,17 @@
 }
 
 .cta-button:hover {
-  background-color: #154360;
+  background-color: #5b3047;
   color: white;
 }
 
 .mensaje {
-  color: #1a5276;
+  color: #713c58;
   font-weight: 500;
 }
 
 .card-title {
-  color: #1a5276;
+  color: #713c58;
 }
 
 .badge {
@@ -56,7 +56,7 @@
 .estado-pendiente { background-color: #fdebd0; color: #9c640c; }
 .estado-confirmada { background-color: #d4efdf; color: #1e8449; }
 .estado-cancelada { background-color: #fadbd8; color: #922b21; }
-.estado-completada { background-color: #d6eaf8; color: #1a5276; }
+.estado-completada { background-color: #d6eaf8; color: #713c58; }
 
 .btn-cancelar {
   display: inline-block;

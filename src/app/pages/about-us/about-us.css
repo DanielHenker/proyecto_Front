@@ -1,29 +1,29 @@
 .hero-about {
   text-align: center;
   padding: 3rem 1rem;
-  background-color: #eaf4fb;
+  background-color: #f7f0f4;
 }
 
 .hero-about h1 {
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 0.5rem;
 }
 
 .info-box {
-  background-color: #eaf4fb;
-  border-left: 4px solid #1a5276;
+  background-color: #f7f0f4;
+  border-left: 4px solid #713c58;
   padding: 1.5rem;
   border-radius: 4px;
   height: 100%;
 }
 
 .info-box h3 {
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 1rem;
 }
 
 .card-title {
-  color: #1a5276;
+  color: #713c58;
 }
 
 .value-card {
@@ -32,41 +32,51 @@
 }
 
 .value-card h4 {
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 0.5rem;
 }
 
+.experiencia-box {
+  border: 1px solid #f5d9e8;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.experiencia-box h2 {
+  color: #713c58;
+}
+
 .schedule-box {
-  border: 1px solid #d9e8f5;
+  border: 1px solid #f5d9e8;
   border-radius: 4px;
   padding: 1.5rem;
 }
 
 .schedule-box h3 {
-  color: #1a5276;
+  color: #713c58;
 }
 
 .cta-about {
-  background-color: #eaf4fb;
+  background-color: #f7f0f4;
   padding: 3rem 1rem;
   margin-top: 2rem;
 }
 
 .cta-about h2 {
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 1rem;
 }
 
 .cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #1a5276;
+  background-color: #713c58;
   color: white;
   text-decoration: none;
   border-radius: 4px;
 }
 
 .cta-button:hover {
-  background-color: #154360;
+  background-color: #5b3047;
   color: white;
 }

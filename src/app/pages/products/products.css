@@ -7,7 +7,7 @@
 
 h1 {
   text-align: center;
-  color: #1a5276;
+  color: #713c58;
   margin-bottom: 1.5rem;
 }
 
@@ -27,7 +27,7 @@ h1 {
 
 .formulario button {
   padding: 0.6rem 1rem;
-  background-color: #1a5276;
+  background-color: #713c58;
   color: white;
   border: none;
   border-radius: 6px;
@@ -35,7 +35,7 @@ h1 {
 }
 
 .formulario button:hover {
-  background-color: #154360;
+  background-color: #5b3047;
 }
 
 .cargando {
@@ -68,7 +68,7 @@ h1 {
 }
 
 .tarjeta .nombre {
-  color: #1a5276;
+  color: #713c58;
   font-size: 1rem;
 }
 
@@ -77,8 +77,8 @@ h1 {
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  color: #1a5276;
-  background: #eaf4fb;
+  color: #713c58;
+  background: #f7f0f4;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
 }

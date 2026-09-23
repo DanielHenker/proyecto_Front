@@ -1,37 +1,125 @@
-.services-container {
-    padding: 2rem;
+.services-hero {
+    padding: 3rem 1rem;
+    background-color: #f7f0f4;
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
+.services-hero h1 {
+    color: #713c58;
+    margin-bottom: 0.5rem;
+}
+
+.services-hero .lead {
+    color: #5a4a52;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-container {
+    padding: 3rem 1rem;
+}
+
+.mensaje {
+    color: #713c58;
+    font-weight: 500;
 }
 
 .service-card {
-    border: 1px solid #ddd;
+    border: 1px solid #f5d9e8;
     border-radius: 8px;
     padding: 1.5rem;
+    background-color: white;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(113, 60, 88, 0.15);
+}
+
+.category-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #f7f0f4;
+    color: #713c58;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
 }
 
 .service-card h3 {
-    color: #1a5276;
+    color: #713c58;
     margin-top: 0;
 }
 
-.category {
-    font-size: 0.85rem;
-    color: #888;
-    text-transform: uppercase;
+.service-card .description {
+    color: #555;
+    flex-grow: 1;
+}
+
+.service-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #f7f0f4;
 }
 
 .price {
     font-weight: bold;
-    margin-top: 1rem;
+    color: #713c58;
+    font-size: 1.1rem;
 }
 
-.mensaje {
-    text-align: center;
-    color: #666;
+.price-variable {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.cta-button-sm {
+    display: inline-block;
+    padding: 0.4rem 0.9rem;
+    background-color: #713c58;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.85rem;
+}
+
+.cta-button-sm:hover {
+    background-color: #5b3047;
+    color: white;
+}
+
+.services-cta {
+    background-color: #f7f0f4;
+    padding: 3rem 1rem;
+    margin-top: 3rem;
+    border-radius: 8px;
+}
+
+.services-cta h2 {
+    color: #713c58;
+    margin-bottom: 0.5rem;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #713c58;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+}
+
+.cta-button:hover {
+    background-color: #5b3047;
+    color: white;
 }
