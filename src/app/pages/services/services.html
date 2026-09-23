@@ -1,18 +1,40 @@
+<section class="services-hero text-center">
+    <div class="container">
+        <h1>Nuestros servicios</h1>
+        <p class="lead">Cuidamos tu sonrisa con tratamientos profesionales, seguros y pensados para cada etapa de tu salud oral.</p>
+    </div>
+</section>
+
 <section class="services-container">
-    <h2>Nuestros servicios</h2>
-
-    @if (mensaje) {
-        <p class="mensaje">{{ mensaje }}</p>
-    }
-
-    <div class="services-grid">
-        @for (servicio of servicios; track servicio._id) {
-            <div class="service-card">
-                <h3>{{ servicio.name }}</h3>
-                <p class="category">{{ servicio.category }}</p>
-                <p>{{ servicio.description }}</p>
-                <p class="price">${{ servicio.price }}</p>
-            </div>
+    <div class="container">
+        @if (mensaje()) {
+            <p class="mensaje text-center">{{ mensaje() }}</p>
         }
+
+        <div class="row g-4">
+            @for (servicio of servicios(); track servicio._id) {
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card h-100">
+                        <span class="category-badge">{{ servicio.category }}</span>
+                        <h3>{{ servicio.name }}</h3>
+                        <p class="description">{{ servicio.description }}</p>
+                        <div class="service-footer">
+                            @if (servicio.price > 0) {
+                                <span class="price">${{ servicio.price | number:'1.0-0' }}</span>
+                            } @else {
+                                <span class="price price-variable">Costo según tratamiento</span>
+                            }
+                            <a routerLink="/citas" class="cta-button-sm">Agendar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="services-cta text-center">
+            <h2>¿Listo para tu próxima visita?</h2>
+            <p>Agenda tu cita en línea y te confirmamos el horario disponible.</p>
+            <a routerLink="/citas" class="cta-button">Agendar una cita</a>
+        </div>
     </div>
 </section>

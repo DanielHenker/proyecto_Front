@@ -53,7 +53,7 @@
           <div class="col-md-6">
             <div class="card shadow-sm">
               <div class="card-body">
-                <h5 class="card-title">{{ cita.service.name }}</h5>
+                <h5 class="card-title">{{ cita.service?.name || 'Servicio no disponible' }}</h5>
                 <p class="card-text mb-2">{{ cita.date | date:'medium' }}</p>
                 <span [class]="'badge estado-' + cita.status">{{ cita.status }}</span>
                 @if (cita.status !== 'cancelada' && cita.status !== 'completada') {

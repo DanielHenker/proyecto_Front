@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Login } from '../../services/login';
 import { Credentials } from '../../interfaces/credentials';
 
@@ -11,25 +12,34 @@ import { Credentials } from '../../interfaces/credentials';
   styleUrl: './forms.css'
 })
 export class Forms {
+  private loginService = inject(Login);
+  private router = inject(Router);
+
   credentials: Credentials = {
     email: '',
     password: ''
   };
 
-  mensaje: string = '';
-
-  constructor(private loginService: Login, private router: Router) {}
-
   onSubmit() {
     this.loginService.iniciarSesion(this.credentials).subscribe({
       next: (response) => {
-        this.mensaje = 'Inicio de sesión exitoso';
-        // Guardamos el token JWT para futuras peticiones autenticadas
         this.loginService.guardarToken(response.token);
-        this.router.navigate(['/']);
+        Swal.fire({
+          icon: 'success',
+          title: '¡Bienvenido!',
+          text: 'Inicio de sesión exitoso',
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          this.router.navigate(['/']);
+        });
       },
       error: (error) => {
-        this.mensaje = error.error?.mensaje || 'Credenciales inválidas';
+        Swal.fire({
+          icon: 'error',
+          title: 'No se pudo iniciar sesión',
+          text: error.error?.mensaje || 'Credenciales inválidas'
+        });
       }
     });
   }
