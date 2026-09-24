@@ -1,17 +1,105 @@
 <section class="hero">
   <div class="container">
-    <h1>Consultorio Odontológico Dra. Edith Henker</h1>
-    <p>Cuidamos tu sonrisa con los mejores tratamientos y atención personalizada.</p>
+    <h1>Consultorio Odontológico de Rehabilitación Oral, Estética, Implantología y Trastornos de la Articulación Temporomandibular</h1>
+    <p class="hero-subtitle">Dra. Edith Henker</p>
+    <p class="hero-text">Cuidamos tu sonrisa con tratamientos profesionales, seguros y pensados para cada etapa de tu salud oral.</p>
     <a routerLink="/citas" class="cta-button">Agenda tu cita</a>
   </div>
 </section>
 
-<section class="info">
+<section class="gallery">
   <div class="container">
-    <h2 class="text-center mb-4">¿Por qué elegirnos?</h2>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Atención profesional y cercana a cargo de la Dra. Edith Henker</li>
-      <li class="list-group-item">Amplia variedad de servicios odontológicos</li>
-    </ul>
+    <h2 class="text-center mb-4">Conoce nuestro consultorio</h2>
+    <div class="carousel">
+      <button type="button" class="carousel-arrow carousel-arrow-left" (click)="anterior()" aria-label="Foto anterior">&#10094;</button>
+
+      @for (foto of fotos; track foto.src; let i = $index) {
+        @if (i === indiceActual()) {
+          <div class="carousel-slide">
+            <img [src]="foto.src" [alt]="foto.alt" class="carousel-image">
+            <div class="carousel-caption">
+              <h3>{{ foto.titulo }}</h3>
+              <p>{{ foto.descripcion }}</p>
+            </div>
+          </div>
+        }
+      }
+
+      <button type="button" class="carousel-arrow carousel-arrow-right" (click)="siguiente()" aria-label="Foto siguiente">&#10095;</button>
+    </div>
+    <div class="carousel-dots">
+      @for (foto of fotos; track foto.src; let i = $index) {
+        <button
+          type="button"
+          class="dot"
+          [class.dot-active]="i === indiceActual()"
+          (click)="irA(i)"
+          [attr.aria-label]="'Ir a la foto ' + (i + 1)">
+        </button>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="specialties">
+  <div class="container">
+    <h2 class="text-center mb-4">Nuestras especialidades</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="specialty-card h-100">
+          <h3>Rehabilitación oral</h3>
+          <p>Recuperamos la función y la estética de tu boca cuando has perdido piezas dentales, con prótesis y tratamientos integrales adaptados a cada caso.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="specialty-card h-100">
+          <h3>Estética dental</h3>
+          <p>Diseñamos sonrisas más armónicas con tratamientos como blanqueamiento y procedimientos pensados para resaltar tu sonrisa natural.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="specialty-card h-100">
+          <h3>Implantología</h3>
+          <p>Reemplazamos piezas dentales perdidas con implantes que se integran de forma natural, devolviendo firmeza y funcionalidad a tu mordida.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="specialty-card h-100">
+          <h3>Trastornos de la ATM</h3>
+          <p>Evaluamos y tratamos el dolor mandibular, el bruxismo y otras alteraciones de la articulación temporomandibular con un enfoque especializado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <div class="container">
+    <h2 class="text-center mb-4">¿Cómo funciona agendar tu cita?</h2>
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <div class="step-circle">1</div>
+        <h4>Regístrate</h4>
+        <p>Crea tu cuenta en un minuto con tus datos básicos de contacto.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="step-circle">2</div>
+        <h4>Elige tu servicio</h4>
+        <p>Selecciona el tratamiento que necesitas y la fecha y hora que más te convenga.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="step-circle">3</div>
+        <h4>Confirmamos tu cita</h4>
+        <p>Tu cita queda agendada y podrás consultarla o cancelarla cuando quieras desde tu cuenta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="home-cta text-center">
+  <div class="container">
+    <h2>¿Listo para agendar tu próxima cita?</h2>
+    <p>Agenda tu cita en línea y te confirmamos el horario disponible.</p>
+    <a routerLink="/citas" class="cta-button">Agendar una cita</a>
   </div>
 </section>
