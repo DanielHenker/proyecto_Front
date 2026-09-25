@@ -23,11 +23,14 @@ export class Citas implements OnInit {
   private _loginService = inject(Login);
 
   // 2. Estado local con signals
-  logueado = false;
+  // (logueado y mensaje deben ser signals: esta app es zoneless, así que
+  // una propiedad normal actualizada dentro de un .subscribe() no vuelve
+  // a pintar la vista)
+  logueado = signal(false);
   servicios = signal<Product[]>([]);
   misCitas = signal<CitaPoblada[]>([]);
   cargando = signal(false);
-  mensaje = '';
+  mensaje = signal('');
 
   // 3. Modelo del formulario de agendamiento
   nuevaCita = {
@@ -38,9 +41,9 @@ export class Citas implements OnInit {
 
   ngOnInit(): void {
     // Revisamos si hay una sesión activa apenas se carga la página
-    this.logueado = this._loginService.estaLogueado();
+    this.logueado.set(this._loginService.estaLogueado());
 
-    if (this.logueado) {
+    if (this.logueado()) {
       this.cargarServicios();
       this.cargarMisCitas();
     }
@@ -80,12 +83,13 @@ export class Citas implements OnInit {
     const idUsuario = this._loginService.obtenerIdUsuario();
 
     if (!idUsuario) {
-      this.mensaje = 'Debes iniciar sesión para agendar una cita';
+      this.mensaje.set('Debes iniciar sesión para agendar una cita');
       return;
     }
 
+    // No enviamos el "user": el backend siempre toma el dueño de la cita
+    // del token de sesión, nunca de lo que mande el cliente aquí.
     const cita: Cita = {
-      user: idUsuario,
       service: this.nuevaCita.service,
       date: this.nuevaCita.date,
       notes: this.nuevaCita.notes
@@ -93,12 +97,12 @@ export class Citas implements OnInit {
 
     this._citasService.agendarCita(cita).subscribe({
       next: () => {
-        this.mensaje = 'Cita agendada correctamente';
+        this.mensaje.set('Cita agendada correctamente');
         this.nuevaCita = { service: '', date: '', notes: '' };
         this.cargarMisCitas(); // refrescamos la lista para que aparezca la nueva
       },
       error: (error) => {
-        this.mensaje = error.error?.mensaje ?? 'Ocurrió un error al agendar la cita';
+        this.mensaje.set(error.error?.mensaje ?? 'Ocurrió un error al agendar la cita');
       }
     });
   }

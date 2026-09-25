@@ -1,4 +1,4 @@
-@if (!logueado) {
+@if (!logueado()) {
   <section class="aviso-login">
     <div class="container text-center">
       <h2>Inicia sesión para agendar tu cita</h2>
@@ -38,8 +38,8 @@
         </div>
       </form>
 
-      @if (mensaje) {
-        <p class="mensaje text-center">{{ mensaje }}</p>
+      @if (mensaje()) {
+        <p class="mensaje text-center">{{ mensaje() }}</p>
       }
 
       <h2 class="text-center mb-3">Mis citas</h2>

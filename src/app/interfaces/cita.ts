@@ -1,6 +1,9 @@
 export interface Cita {
   _id?: string;
-  user: string;       // ID de Mongo del usuario que agenda
+  // El dueño de la cita lo determina siempre el backend a partir del token
+  // (nunca de lo que mande el cliente), así que este campo es opcional y
+  // no hace falta enviarlo al agendar una cita nueva.
+  user?: string;
   service: string;    // ID de Mongo del servicio elegido
   date: string;        // fecha y hora en formato ISO
   status?: 'pendiente' | 'confirmada' | 'cancelada' | 'completada';
