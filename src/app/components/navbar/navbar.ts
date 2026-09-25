@@ -16,17 +16,28 @@ export class Navbar {
 
   logueado = signal(this.loginService.estaLogueado());
   esAdmin = signal(this.loginService.esAdmin());
+  menuAbierto = signal(false);
 
   constructor() {
     // Cada vez que se completa una navegación (por ejemplo, justo después
     // de iniciar sesión o cerrarla) volvemos a comprobar el estado,
     // para que el menú se actualice sin tener que recargar la página.
+    // También cerramos el menú hamburguesa si estaba abierto en móvil.
     this.router.events
       .pipe(filter((evento) => evento instanceof NavigationEnd))
       .subscribe(() => {
         this.logueado.set(this.loginService.estaLogueado());
         this.esAdmin.set(this.loginService.esAdmin());
+        this.menuAbierto.set(false);
       });
+  }
+
+  alternarMenu() {
+    this.menuAbierto.set(!this.menuAbierto());
+  }
+
+  cerrarMenu() {
+    this.menuAbierto.set(false);
   }
 
   cerrarSesion() {
@@ -42,6 +53,7 @@ export class Navbar {
         this.loginService.cerrarSesion();
         this.logueado.set(false);
         this.esAdmin.set(false);
+        this.menuAbierto.set(false);
         this.router.navigate(['/']);
         Swal.fire({
           icon: 'success',

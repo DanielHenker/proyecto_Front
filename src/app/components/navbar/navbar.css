@@ -5,6 +5,7 @@
     padding: 0.5rem 2rem;
     background-color: #713c58;
     color: white;
+    position: relative;
 }
 
 .navbar-brand {
@@ -70,4 +71,79 @@
     background-color: #f7f0f4;
     transform: translateY(-1px);
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+}
+
+/* Botón hamburguesa: oculto en escritorio, solo aparece en pantallas pequeñas */
+.navbar-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.navbar-toggle span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: white;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navbar-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Menú desplegable en móvil/tablet, para que los botones no queden apretados arriba */
+@media (max-width: 768px) {
+    .navbar-toggle {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+        background-color: #713c58;
+        padding: 1rem 1.5rem 1.5rem;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 20;
+    }
+
+    .navbar-links.open {
+        display: flex;
+    }
+
+    .navbar-links li {
+        width: 100%;
+    }
+
+    .navbar-links a,
+    .navbar-links .btn-logout {
+        display: block;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
 }

@@ -2,18 +2,31 @@
     <div class="navbar-brand">
         <img src="logo-henker.png" alt="Consultorio Dra. Edith Henker" class="brand-logo">
     </div>
-    <ul class="navbar-links">
-        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Inicio</a></li>
-        <li><a routerLink="/nosotros" routerLinkActive="active">Sobre Nosotros</a></li>
-        <li><a routerLink="/servicios" routerLinkActive="active">Servicios</a></li>
-        <li><a routerLink="/citas" routerLinkActive="active">Agendar cita</a></li>
+
+    <button
+        type="button"
+        class="navbar-toggle"
+        [class.active]="menuAbierto()"
+        (click)="alternarMenu()"
+        [attr.aria-expanded]="menuAbierto()"
+        aria-label="Abrir menú de navegación">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <ul class="navbar-links" [class.open]="menuAbierto()">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="cerrarMenu()">Inicio</a></li>
+        <li><a routerLink="/nosotros" routerLinkActive="active" (click)="cerrarMenu()">Sobre Nosotros</a></li>
+        <li><a routerLink="/servicios" routerLinkActive="active" (click)="cerrarMenu()">Servicios</a></li>
+        <li><a routerLink="/citas" routerLinkActive="active" (click)="cerrarMenu()">Agendar cita</a></li>
         @if (esAdmin()) {
-            <li><a routerLink="/admin/servicios" routerLinkActive="active">Gestionar servicios</a></li>
-            <li><a routerLink="/admin/pacientes" routerLinkActive="active">Pacientes</a></li>
+            <li><a routerLink="/admin/servicios" routerLinkActive="active" (click)="cerrarMenu()">Gestionar servicios</a></li>
+            <li><a routerLink="/admin/pacientes" routerLinkActive="active" (click)="cerrarMenu()">Pacientes</a></li>
         }
         @if (!logueado()) {
-            <li><a routerLink="/login" routerLinkActive="active">Iniciar sesión</a></li>
-            <li><a routerLink="/registro" routerLinkActive="active">Registrarse</a></li>
+            <li><a routerLink="/login" routerLinkActive="active" (click)="cerrarMenu()">Iniciar sesión</a></li>
+            <li><a routerLink="/registro" routerLinkActive="active" (click)="cerrarMenu()">Registrarse</a></li>
         } @else {
             <li><button class="btn-logout" (click)="cerrarSesion()">Cerrar sesión</button></li>
         }
